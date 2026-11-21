@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little World ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap');
+
+:root{
+  --pink:#f8dce5;
+  --rose:#ebafc2;
+  --deep:#d985a2;
+  --dark:#b86b83;
+  --cream:#fff3ec;
+  --text:#79505d;
+  --white:#fffaf7;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Quicksand',sans-serif;
+  color:var(--text);
+  min-height:100vh;
+  background-color:#fff3ec;
+  background-image:
+    radial-gradient(#edc1ce 1.5px,transparent 1.5px),
+    radial-gradient(#f6d7c6 1.5px,transparent 1.5px);
+  background-size:45px 45px,75px 75px;
+  background-position:0 0,20px 20px;
+}
+
+button{font-family:inherit}
+.hidden{display:none!important}
+
+/* BACKGROUND DECORATIONS */
+
+.bg-decoration{
+  position:fixed;
+  pointer-events:none;
+  z-index:0;
+  animation:floatDecor 4s ease-in-out infinite;
+  opacity:.8;
+}
+
+@keyframes floatDecor{
+  50%{transform:translateY(-12px) rotate(12deg)}
+}
+
+/* BEAR COUPLE */
+
+.bear-art{
+  width:100%;
+  max-width:310px;
+  display:block;
+  margin:auto;
+}
+
+.bear-left{
+  transform-box:fill-box;
+  transform-origin:center bottom;
+  animation:leftCuddle 3s ease-in-out infinite;
+}
+
+.bear-right{
+  transform-box:fill-box;
+  transform-origin:center bottom;
+  animation:rightCuddle 3s ease-in-out infinite;
+}
+
+@keyframes leftCuddle{
+  0%,100%{transform:translateX(3px)}
+  50%{transform:translateX(12px) rotate(3deg)}
+}
+
+@keyframes rightCuddle{
+  0%,100%{transform:translateX(-3px)}
+  50%{transform:translateX(-12px) rotate(-3deg)}
+}
+
+.bear-heart{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+  50%{transform:scale(1.35)}
+}
+
+.bear-wave{
+  transform-box:fill-box;
+  transform-origin:bottom center;
+  animation:wave 2s ease-in-out infinite;
+}
+
+@keyframes wave{
+  0%,100%{transform:rotate(0)}
+  50%{transform:rotate(12deg)}
+}
+
+/* SHARED WINDOW DESIGN */
+
+.page{
+  min-height:100vh;
+  padding:35px 15px 55px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:1;
+}
+
+.window{
+  width:100%;
+  max-width:790px;
+  background:var(--pink);
+  border:4px solid var(--dark);
+  border-radius:17px;
+  overflow:hidden;
+  box-shadow:0 12px 30px #d7a6b4;
+  margin:auto;
+}
+
+.window-bar{
+  min-height:52px;
+  background:var(--rose);
+  border-bottom:4px solid var(--dark);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 16px;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.window-controls{
+  display:flex;
+  gap:6px;
+}
+
+.window-controls span{
+  width:22px;
+  height:22px;
+  display:grid;
+  place-items:center;
+  background:var(--cream);
+  border:2px solid var(--dark);
+}
+
+.heart-strip{
+  background:var(--cream);
+  text-align:center;
+  padding:12px;
+  color:var(--dark);
+  letter-spacing:10px;
+  border-bottom:3px solid var(--dark);
+}
+
+.window-content{
+  background-color:#f9e5eb;
+  background-image:
+    linear-gradient(45deg,#f1cad6 25%,transparent 25%),
+    linear-gradient(-45deg,#f1cad6 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#f1cad6 75%),
+    linear-gradient(-45deg,transparent 75%,#f1cad6 75%);
+  background-size:24px 24px;
+  background-position:0 0,0 12px,12px -12px,-12px 0;
+  padding:30px 22px;
+  text-align:center;
+}
+
+.inner-panel{
+  background:var(--cream);
+  border:2px solid #e3a8ba;
+  border-radius:14px;
+  padding:25px;
+}
+
+h1,h2.fancy,h3.fancy{
+  font-family:'Pacifico',cursive;
+  font-weight:400;
+  color:#a65372;
+}
+
+h1{font-size:clamp(27px,5vw,40px)}
+h2.fancy{font-size:25px}
+h3.fancy{font-size:20px}
+
+p{
+  line-height:1.8;
+  font-size:14px;
+}
+
+.main-button{
+  background:var(--deep);
+  color:white;
+  border:2px solid var(--dark);
+  border-radius:25px;
+  padding:12px 22px;
+  font-weight:700;
+  cursor:pointer;
+  margin:10px 5px;
+  transition:.25s;
+  box-shadow:0 4px 0 #bd718b;
+}
+
+.main-button:hover{
+  transform:translateY(-3px);
+  background:var(--dark);
+}
+
+.back-button{margin-top:22px}
+
+.page-footer{
+  margin-top:22px;
+  font-size:12px;
+  color:#a76c7d;
+}
+
+/* LOCK SCREEN */
+
+#lockScreen{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.lock-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:530px;
+}
+
+.lock-left{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:25px;
+  background:#f8dce5;
+  border-right:3px dashed var(--dark);
+  text-align:center;
+}
+
+.lock-left h1{margin-bottom:10px}
+
+.lock-right{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  background:#f0c0d0;
+}
+
+.pin-display{
+  display:flex;
+  gap:12px;
+  margin:22px 0;
+}
+
+.pin-dot{
+  height:43px;
+  width:43px;
+  background:var(--cream);
+  border:3px solid var(--dark);
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  font-size:20px;
+}
+
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(3,58px);
+  gap:12px;
+}
+
+.key{
+  height:55px;
+  width:55px;
+  border-radius:50%;
+  border:2px solid var(--dark);
+  background:var(--cream);
+  color:var(--text);
+  font-size:21px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 4px 0 #c58a9d;
+  transition:.2s;
+}
+
+.key:hover{transform:translateY(-3px);background:white}
+
+.hint{
+  font-size:13px;
+  margin-top:20px;
+  color:#fff;
+  font-weight:700;
+}
+
+#error{
+  color:#fff;
+  margin-top:8px;
+  font-weight:700;
+}
+
+/* HOMEPAGE */
+
+.home-bears{max-width:260px;margin:10px auto}
+
+.counter{
+  background:var(--cream);
+  border:2px dashed var(--dark);
+  border-radius:14px;
+  padding:18px;
+  max-width:540px;
+  margin:22px auto;
+}
+
+.counter-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+  margin:15px 0;
+}
+
+.counter-number{
+  color:var(--dark);
+  font-size:27px;
+  font-weight:700;
+}
+
+.counter-label{
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  max-width:570px;
+  margin:22px auto;
+}
+
+.choice{
+  background:var(--cream);
+  border:2px solid var(--dark);
+  border-radius:14px;
+  padding:18px 7px;
+  cursor:pointer;
+  box-shadow:0 4px 0 #c88ca0;
+  transition:.25s;
+}
+
+.choice:hover{
+  transform:translateY(-7px) rotate(-2deg);
+  background:white;
+}
+
+.choice .emoji{font-size:36px}
+.choice h3{font-size:12px;margin-top:9px}
+
+.final-unlock{
+  background:var(--cream);
+  border:2px dashed var(--dark);
+  border-radius:14px;
+  padding:18px;
+  max-width:530px;
+  margin:25px auto;
+}
+
+/* LETTER */
+
+.letter{
+  background:#fff9f4;
+  border:2px dashed var(--dark);
+  border-radius:12px;
+  padding:22px;
+  text-align:left;
+  line-height:2;
+  font-size:14px;
+  white-space:pre-wrap;
+  min-height:150px;
+  overflow-wrap:anywhere;
+  margin-top:18px;
+}
+
+.letter-title{
+  font-family:'Pacifico',cursive;
+  color:var(--dark);
+  font-size:20px;
+}
+
+/* MINI BEARS ON INNER PAGES */
+
+.mini-bears{
+  width:180px;
+  margin:5px auto 15px;
+}
+
+/* PLAYLIST */
+
+.song{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  background:#f9e1e9;
+  border:2px solid #e3afc0;
+  border-radius:12px;
+  padding:13px;
+  margin:13px 0;
+  text-align:left;
+}
+
+.song-art{
+  width:55px;
+  height:55px;
+  min-width:55px;
+  border-radius:10px;
+  background:#eab6c9;
+  display:grid;
+  place-items:center;
+  font-size:27px;
+}
+
+.song-details{flex:1;min-width:0}
+.song-details strong{display:block;font-size:14px}
+.song-details small{font-size:12px}
+
+.listen{
+  background:var(--dark);
+  color:white;
+  border:0;
+  border-radius:20px;
+  padding:10px 13px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* CAKE */
+
+.cake{
+  font-size:105px;
+  margin:18px 0 5px;
+  animation:cakeBounce 2s infinite;
+}
+
+@keyframes cakeBounce{
+  50%{transform:translateY(-7px)}
+}
+
+.cake-message{
+  background:#f9e1e9;
+  border:2px dashed var(--dark);
+  border-radius:12px;
+  padding:20px;
+  margin-top:18px;
+  animation:fadeIn .7s;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:scale(.8)}
+  to{opacity:1;transform:scale(1)}
+}
+
+/* GIFT */
+
+.gift-area{
+  position:relative;
+  width:220px;
+  height:200px;
+  margin:35px auto 15px;
+  cursor:pointer;
+}
+
+.gift-box{
+  position:absolute;
+  width:165px;
+  height:105px;
+  left:27px;
+  bottom:0;
+  background:#e98eaa;
+  border:4px solid #a65372;
+  border-radius:8px;
+  box-shadow:0 7px 0 #bd718b;
+}
+
+.gift-box:before{
+  content:"";
+  position:absolute;
+  left:60px;
+  width:34px;
+  height:100%;
+  background:#fff0d9;
+  border-left:3px solid #a65372;
+  border-right:3px solid #a65372;
+}
+
+.gift-lid{
+  position:absolute;
+  left:17px;
+  bottom:102px;
+  width:185px;
+  height:38px;
+  background:#f4b5c8;
+  border:4px solid #a65372;
+  border-radius:8px;
+  z-index:3;
+  transform-origin:left bottom;
+  transition:transform .8s;
+}
+
+.gift-bow{
+  position:absolute;
+  left:87px;
+  bottom:136px;
+  z-index:4;
+}
+
+.gift-bow:before,.gift-bow:after{
+  content:"";
+  position:absolute;
+  height:27px;
+  width:27px;
+  background:#fff0d9;
+  border:5px solid #a65372;
+  border-radius:50% 50% 0 50%;
+}
+
+.gift-bow:after{
+  left:22px;
+  transform:scaleX(-1);
+}
+
+.gift-area.open .gift-lid{
+  transform:translate(-35px,-75px) rotate(-35deg);
+}
+
+.gift-area.open .gift-bow{
+  opacity:0;
+}
+
+.gift-message{
+  background:#f9e1e9;
+  border:2px dashed var(--dark);
+  border-radius:13px;
+  padding:20px;
+  line-height:2;
+  margin-top:20px;
+  animation:fadeIn .8s;
+}
+
+/* SPARKLES */
+
+.sparkle{
+  position:fixed;
+  pointer-events:none;
+  z-index:20;
+  animation:burst 1.7s ease-out forwards;
+}
+
+@keyframes burst{
+  0%{opacity:1;transform:translate(0,0) scale(.5)}
+  100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.7)}
+}
+
+.floating{
+  position:fixed;
+  bottom:-30px;
+  pointer-events:none;
+  z-index:10;
+  animation:floatUp 8s linear forwards;
+}
+
+@keyframes floatUp{
+  to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:620px){
+  .page{padding:18px 10px 35px}
+  .lock-layout{grid-template-columns:1fr}
+  .lock-left{
+    min-height:300px;
+    border-right:0;
+    border-bottom:3px dashed var(--dark);
+    padding:18px;
+  }
+  .lock-left .bear-art{max-width:220px}
+  .lock-right{padding:22px}
+  .cards{gap:8px}
+  .choice{padding:15px 4px}
+  .choice .emoji{font-size:29px}
+  .choice h3{font-size:10px}
+  .window-content{padding:18px 12px}
+  .inner-panel{padding:17px 12px}
+  .letter{padding:14px;font-size:13px}
+  .counter-number{font-size:21px}
+  .song{gap:8px;padding:9px}
+  .listen{font-size:11px;padding:9px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND DECORATIONS -->
+
+<div class="bg-decoration" style="top:8%;left:5%">🎀</div>
+<div class="bg-decoration" style="top:18%;right:7%">♡</div>
+<div class="bg-decoration" style="top:60%;left:3%">✨</div>
+<div class="bg-decoration" style="bottom:15%;right:5%">💗</div>
+<div class="bg-decoration" style="bottom:35%;left:8%">⭐</div>
+
+<!-- REUSABLE ANIMATED BEAR COUPLE -->
+
+<svg width="0" height="0" style="position:absolute">
+<defs>
+<g id="bearCouple">
+
+ <g class="bear-left">
+  <ellipse cx="110" cy="215" rx="46" ry="57"
+   fill="#fffaf5" stroke="#59474b" stroke-width="4"/>
+  <circle cx="110" cy="105" r="60"
+   fill="#fffaf5" stroke="#59474b" stroke-width="4"/>
+
+  <circle cx="67" cy="59" r="18"
+   fill="#fffaf5" stroke="#59474b" stroke-width="4"/>
+  <circle cx="153" cy="59" r="18"
+   fill="#fffaf5" stroke="#59474b" stroke-width="4"/>
+
+  <circle cx="67" cy="59" r="9" fill="#f2c8d4"/>
+  <circle cx="153" cy="59" r="9" fill="#f2c8d4"/>
+
+  <ellipse cx="88" cy="112" rx="5" ry="7" fill="#493b40"/>
+  <ellipse cx="133" cy="112" rx="5" ry="7" fill="#493b40"/>
+  <ellipse cx="76" cy="132" rx="10" ry="7" fill="#efb2c3"/>
+  <ellipse cx="145" cy="132" rx="10" ry="7" fill="#efb2c3"/>
+
+  <path d="M104 131 Q111 141 118 131"
+   fill="none" stroke="#59474b" stroke-width="3"
+   stroke-linecap="round"/>
+
+  <path d="M145 194 Q186 165 186 133"
+   stroke="#fffaf5" stroke-width="19" fill="none"
+   stroke-linecap="round"/>
+  <path d="M145 194 Q186 165 186 133"
+   stroke="#59474b" stroke-width="3" fill="none"/>
+ </g>
+
+ <g class="bear-right">
+  <ellipse cx="230" cy="215" rx="46" ry="57"
+   fill="#cba36a" stroke="#59474b" stroke-width="4"/>
+  <circle cx="230" cy="105" r="60"
+   fill="#cba36a" stroke="#59474b" stroke-width="4"/>
+
+  <circle cx="187" cy="59" r="18"
+   fill="#cba36a" stroke="#59474b" stroke-width="4"/>
+  <circle cx="273" cy="59" r="18"
+   fill="#cba36a" stroke="#59474b" stroke-width="4"/>
+
+  <circle cx="187" cy="59" r="9" fill="#e7c08b"/>
+  <circle cx="273" cy="59" r="9" fill="#e7c08b"/>
+
+  <ellipse cx="208" cy="112" rx="5" ry="7" fill="#493b40"/>
+  <ellipse cx="253" cy="112" rx="5" ry="7" fill="#493b40"/>
+  <ellipse cx="196" cy="132" rx="10" ry="7" fill="#e99c9d"/>
+  <ellipse cx="265" cy="132" rx="10" ry="7" fill="#e99c9d"/>
+
+  <path d="M224 131 Q231 141 238 131"
+   fill="none" stroke="#59474b" stroke-width="3"
+   stroke-linecap="round"/>
+
+  <path d="M193 194 Q154 166 154 133"
+   stroke="#cba36a" stroke-width="19" fill="none"
+   stroke-linecap="round"/>
+  <path d="M193 194 Q154 166 154 133"
+   stroke="#59474b" stroke-width="3" fill="none"/>
+ </g>
+
+ <text class="bear-heart" x="169" y="45"
+  font-size="35" text-anchor="middle" fill="#e36c91">♥</text>
+
+ <text x="95" y="34" font-size="17">✨</text>
+ <text x="245" y="25" font-size="17">♡</text>
+
+</g>
+</defs>
+</svg>
+
+<!-- LOCK SCREEN -->
+
+<section id="lockScreen" class="page">
+ <div class="window">
+  <div class="window-bar">
+   <span>OUR LITTLE WORLD ♡</span>
+   <div class="window-controls"><span>−</span><span>□</span><span>×</span></div>
+  </div>
+  <div class="heart-strip">♥ · ♥ · ♥ · ♥</div>
+
+  <div class="lock-layout">
+   <div class="lock-left">
+    <h1>Welcome, my love!</h1>
+    <p>Our own little world, made just for you.</p>
+
+    <svg class="bear-art" viewBox="0 0 340 290">
+     <use href="#bearCouple"/>
+    </svg>
+
+    <p>Two little hearts, one beautiful story. ♡</p>
+   </div>
+
+   <div class="lock-right">
+    <h2 class="fancy">Enter the secret code</h2>
+
+    <div class="pin-display">
+     <div class="pin-dot"></div>
+     <div class="pin-dot"></div>
+     <div class="pin-dot"></div>
+     <div class="pin-dot"></div>
+    </div>
+
+    <div class="keypad">
+     <button class="key" onclick="press(1)">1</button>
+     <button class="key" onclick="press(2)">2</button>
+     <button class="key" onclick="press(3)">3</button>
+     <button class="key" onclick="press(4)">4</button>
+     <button class="key" onclick="press(5)">5</button>
+     <button class="key" onclick="press(6)">6</button>
+     <button class="key" onclick="press(7)">7</button>
+     <button class="key" onclick="press(8)">8</button>
+     <button class="key" onclick="press(9)">9</button>
+     <button class="key" onclick="clearPin()">⌫</button>
+     <button class="key" onclick="press(0)">0</button>
+     <button class="key" onclick="checkPin()">♡</button>
+    </div>
+
+    <p class="hint">Hint: The day we confessed!</p>
+    <p id="error"></p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- HOMEPAGE -->
+
+<section id="homeScreen" class="page hidden">
+ <div class="window">
+  <div class="window-bar">
+   <span>OUR ANNIVERSARY DESKTOP</span>
+   <div class="window-controls"><span>−</span><span>□</span><span>×</span></div>
+  </div>
+
+  <div class="heart-strip">♥ · ♥ · ♥ · ♥</div>
+
+  <div class="window-content">
+   <div class="inner-panel">
+
+    <h1>Happy 3rd Anniversary! ♡</h1>
+    <p>Three years of love, laughter and memories. And so much more to come.</p>
+
+    <svg class="bear-art home-bears" viewBox="0 0 340 290">
+     <use href="#bearCouple"/>
+    </svg>
+
+    <h3 class="fancy">Our little love story</h3>
+    <p>From two strangers on Instagram to creating a world of our own. I wouldn't change a thing. 💗</p>
+
+    <div class="counter">
+     <h3 class="fancy">Our time together ♡</h3>
+
+     <div class="counter-grid">
+      <div>
+       <div class="counter-number" id="years">0</div>
+       <div class="counter-label">YEARS</div>
+      </div>
+      <div>
+       <div class="counter-number" id="months">0</div>
+       <div class="counter-label">MONTHS</div>
+      </div>
+      <div>
+       <div class="counter-number" id="days">0</div>
+       <div class="counter-label">DAYS</div>
+      </div>
+      <div>
+       <div class="counter-number" id="hours">0</div>
+       <div class="counter-label">HOURS</div>
+      </div>
+     </div>
+
+     <p>Every second with you is special. ♡</p>
+    </div>
+
+    <h3 class="fancy">Choose your little surprise...</h3>
+
+    <div class="cards">
+     <button class="choice" onclick="openPage('letterPage','letter')">
+      <div class="emoji">💌</div>
+      <h3>My Words for You</h3>
+     </button>
+
+     <button class="choice" onclick="openPage('playlistPage','playlist')">
+      <div class="emoji">🎧</div>
+      <h3>Our Playlist</h3>
+     </button>
+
+     <button class="choice" onclick="openPage('cakePage','cake')">
+      <div class="emoji">🎂</div>
+      <h3>A Cake for Us</h3>
+     </button>
+    </div>
+
+    <div id="finalUnlock" class="final-unlock hidden">
+     <h2 class="fancy">You found everything! ♡</h2>
+     <p>There's one last surprise waiting for you...</p>
+     <button class="main-button" onclick="openPage('finalPage')">
+      Open your gift 🎁
+     </button>
+    </div>
+
+    <div class="page-footer">Made with endless love · ୨୧</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- LETTER PAGE -->
+
+<section id="letterPage" class="page hidden">
+ <div class="window">
+  <div class="window-bar">
+   <span>MY WORDS FOR YOU 💌</span>
+   <div class="window-controls"><span>−</span><span>□</span><span>×</span></div>
+  </div>
+  <div class="heart-strip">♥ · ♥ · ♥ · ♥</div>
+
+  <div class="window-content">
+   <div class="inner-panel">
+    <h1>My Words for You</h1>
+    <p>A little letter from my heart to yours.</p>
+
+    <svg class="bear-art mini-bears" viewBox="0 0 340 290">
+     <use href="#bearCouple"/>
+    </svg>
+
+    <div class="letter" id="letterText"></div>
+
+    <button class="main-button back-button" onclick="goHome()">← Back to our world</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- PLAYLIST PAGE -->
+
+<section id="playlistPage" class="page hidden">
+ <div class="window">
+  <div class="window-bar">
+   <span>OUR LITTLE PLAYLIST 🎧</span>
+   <div class="window-controls"><span>−</span><span>□</span><span>×</span></div>
+  </div>
+  <div class="heart-strip">♥ · ♥ · ♥ · ♥</div>
+
+  <div class="window-content">
+   <div class="inner-panel">
+    <h1>Our Little Playlist</h1>
+    <p>Three songs, a thousand feelings. ♡</p>
+
+    <svg class="bear-art mini-bears" viewBox="0 0 340 290">
+     <use href="#bearCouple"/>
+    </svg>
+
+    <div id="songList"></div>
+
+    <button class="main-button back-button" onclick="goHome()">← Back to our world</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- CAKE PAGE -->
+
+<section id="cakePage" class="page hidden">
+ <div class="window">
+  <div class="window-bar">
+   <span>A CAKE FOR US 🎂</span>
+   <div class="window-controls"><span>−</span><span>□</span><span>×</span></div>
+  </div>
+  <div class="heart-strip">♥ · ♥ · ♥ · ♥</div>
+
+  <div class="window-content">
+   <div class="inner-panel">
+    <h1>A Cake for Us!</h1>
+    <p>Three candles for three beautiful years.</p>
+
+    <svg class="bear-art mini-bears" viewBox="0 0 340 290">
+     <use href="#bearCouple"/>
+    </svg>
+
+    <div class="cake" id="cake">🎂</div>
+    <div id="candles" style="font-size:27px">🕯️ 🕯️ 🕯️</div>
+
+    <p style="margin:12px">First, make a wish and blow out the candles!</p>
+
+    <button class="main-button" onclick="blowCandles()">Blow out candles ✨</button>
+    <button class="main-button" onclick="cutCake()">Cut the cake 🍰</button>
+
+    <div id="cakeMessage" class="cake-message hidden">
+     <h2 class="fancy">Make a wish! 💗</h2>
+     <p>Three years down, forever to go.</p>
+     <p>If I could choose again, I'd still choose you.</p>
+     <p>Happy Anniversary, my love! ♡</p>
+     <svg class="bear-art mini-bears" viewBox="0 0 340 290">
+      <use href="#bearCouple"/>
+     </svg>
+    </div>
+
+    <button class="main-button back-button" onclick="goHome()">← Back to our world</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- FINAL GIFT PAGE -->
+
+<section id="finalPage" class="page hidden">
+ <div class="window">
+  <div class="window-bar">
+   <span>YOUR FINAL SURPRISE 🎁</span>
+   <div class="window-controls"><span>−</span><span>□</span><span>×</span></div>
+  </div>
+  <div class="heart-strip">♥ · ♥ · ♥ · ♥</div>
+
+  <div class="window-content">
+   <div class="inner-panel">
+    <h1>One Last Surprise!</h1>
+    <p>A little something, made just for you.</p>
+
+    <svg class="bear-art mini-bears" viewBox="0 0 340 290">
+     <use href="#bearCouple"/>
+    </svg>
+
+    <h3 class="fancy">Open your little gift ♡</h3>
+
+    <div class="gift-area" id="giftArea" onclick="openGift()">
+     <div class="gift-lid"></div>
+     <div class="gift-bow"></div>
+     <div class="gift-box"></div>
+    </div>
+
+    <p id="giftPrompt">Tap the gift box to open it! 🎀</p>
+
+    <div id="giftMessage" class="gift-message hidden">
+     <h2 class="fancy">For My Favourite Person ♡</h2>
+
+     <p>
+      I wish that you could see yourself through my eyes,
+      so you would know how special you are to me.
+      Thank you for being part of my happiest memories
+      and for making ordinary moments feel extraordinary.
+      If there's one thing I'd wish for, it's a million more
+      memories with you.
+      <br><br>
+      I love you always, my love. ♡
+     </p>
+
+     <svg class="bear-art mini-bears" viewBox="0 0 340 290">
+      <use href="#bearCouple"/>
+     </svg>
+
+     <h2 class="fancy">Happy 3rd Anniversary! 💗</h2>
+     <p>Forever & Always · ୨୧</p>
+    </div>
+
+    <button class="main-button back-button" onclick="goHome()">← Back to our world</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<script>
+
+/* PASSWORD */
+
+let pin="";
+
+function press(number){
+ if(pin.length>=4)return;
+
+ pin+=number;
+ updateDots();
+
+ if(pin.length===4){
+  setTimeout(checkPin,350);
+ }
+}
+
+function updateDots(){
+ document.querySelectorAll(".pin-dot").forEach((dot,index)=>{
+  dot.textContent=index<pin.length?"♥":"";
+ });
+}
+
+function clearPin(){
+ pin="";
+ updateDots();
+ document.getElementById("error").textContent="";
+}
+
+function checkPin(){
+ if(pin==="1612"){
+  document.getElementById("lockScreen").classList.add("hidden");
+  document.getElementById("homeScreen").classList.remove("hidden");
+ }else{
+  document.getElementById("error").textContent="Oops! Try again, cutie ♡";
+  setTimeout(clearPin,1000);
+ }
+}
+
+/* NAVIGATION */
+
+let visited=[];
+
+function openPage(id,section){
+ document.querySelectorAll(".page").forEach(page=>{
+  page.classList.add("hidden");
+ });
+
+ document.getElementById(id).classList.remove("hidden");
+
+ if(section&&!visited.includes(section)){
+  visited.push(section);
+ }
+
+ if(id==="letterPage"){
+  typeLetter();
+ }
+
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function goHome(){
+ document.querySelectorAll(".page").forEach(page=>{
+  page.classList.add("hidden");
+ });
+
+ document.getElementById("homeScreen").classList.remove("hidden");
+
+ if(visited.length===3){
+  document.getElementById("finalUnlock").classList.remove("hidden");
+ }
+
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* YOUR ORIGINAL LETTER - UNCHANGED */
+
+const letter=`Three years. It's honestly so surreal to think that we've come this far, especially when I think about how everything started. We were just two people who started talking on Instagram, probably not knowing that those random conversations would eventually turn into something this beautiful. It's funny how life works because what started as something so simple slowly became one of the biggest parts of my life. We went from being strangers to knowing so much about each other, sharing our days, making memories and creating a little world of our own. And I genuinely wouldn't change a single thing about the way our story began.
+
+When I look back at these three years, there are so many moments that immediately come to mind. Our prop days, the little moments we shared, the night we finally confessed how we felt about each other, and, of course, our first hug and our first kiss. I don't think I'll ever be able to explain just how much those moments mean to me. I wish I could go back and experience them all over again, especially that night we confessed, because there's something so special about remembering how everything finally fell into place. And our first hug and kiss will always have a special place in my heart. They're the kind of memories I know I'll look back on years from now and still feel just as happy about. Sometimes I wish I could pause certain moments with you and stay in them a little longer, because time genuinely goes by too quickly when I'm with you.
+
+I also want you to know that I appreciate you more than I probably express. I don't think there's one particular thing that makes you special to me because it's quite literally everything about you. It's who you are, the way you make ordinary days feel a little more meaningful, the comfort of having you around and the happiness that comes with knowing I have you in my life. I love that we've built something that is ours, something filled with memories, little traditions and moments that probably wouldn't mean much to anyone else but mean the absolute world to me. Even the smallest things become special when they're with you. I hope you never doubt how much you mean to me or how grateful I am that out of all the people in the world, somehow our paths crossed.
+
+I know three years might sound like a long time, but I still feel like there's so much left for us to experience. So many more memories to make, places to go, conversations to have, pictures to take, hugs to share and moments that we haven't even imagined yet. We've come a long way from those first Instagram conversations, and I can't wait to see how much more our story unfolds. I don't expect every day to be perfect, but I hope that whatever life brings, we continue choosing each other, understanding each other and growing together. I want us to keep finding reasons to laugh, keep making the most random memories and never lose the little things that make our relationship what it is.
+
+And honestly, if I could go back to the very beginning, knowing everything I know now, I'd still reply to that Instagram message. I'd still want to get to know you, still want that night we confessed, still want our first hug and our first kiss, and every single memory that followed. I'd choose to experience our story all over again, with all its little moments, because at the end of it all, I'd still find my way to you. Thank you for being you, for being such a special part of my life and for giving me three years worth of memories that I'll always treasure. Happy third anniversary, my love. Here's to us, to everything we've been through, everything we are and all the beautiful memories we still have ahead of us. I love you, always. 💗`;
+
+let typingTimer;
+
+function typeLetter(){
+ const box=document.getElementById("letterText");
+
+ clearInterval(typingTimer);
+ box.textContent="";
+
+ let i=0;
+
+ typingTimer=setInterval(()=>{
+  if(i<letter.length){
+   box.textContent+=letter.charAt(i);
+   i++;
+  }else{
+   clearInterval(typingTimer);
+  }
+ },8);
+}
+
+/* PLAYLIST */
+
+const songs=[
+ {
+  name:"Die For You",
+  artist:"The Weeknd & Ariana Grande",
+  search:"Die For You The Weeknd Ariana Grande"
+ },
+ {
+  name:"My Love Mine All Mine",
+  artist:"Mitski",
+  search:"My Love Mine All Mine Mitski"
+ },
+ {
+  name:"ONLY",
+  artist:"LeeHi",
+  search:"ONLY LeeHi"
+ }
+];
+
+const songList=document.getElementById("songList");
+
+songs.forEach((song,index)=>{
+ const item=document.createElement("div");
+ item.className="song";
+
+ const art=document.createElement("div");
+ art.className="song-art";
+ art.textContent=["💗","🌙","🌷"][index];
+
+ const details=document.createElement("div");
+ details.className="song-details";
+
+ const title=document.createElement("strong");
+ title.textContent=song.name;
+
+ const artist=document.createElement("small");
+ artist.textContent=song.artist;
+
+ details.append(title,artist);
+
+ const button=document.createElement("button");
+ button.className="listen";
+ button.textContent="▶ Listen";
+
+ button.onclick=()=>{
+  window.open(
+   "https://www.youtube.com/results?search_query="+
+   encodeURIComponent(song.search),
+   "_blank"
+  );
+ };
+
+ item.append(art,details,button);
+ songList.appendChild(item);
+});
+
+/* CAKE */
+
+let candlesBlown=false;
+let cakeCut=false;
+
+function blowCandles(){
+ candlesBlown=true;
+
+ document.getElementById("candles").textContent="✨ ✨ ✨";
+
+ burstHearts();
+ checkCake();
+}
+
+function cutCake(){
+ cakeCut=true;
+
+ document.getElementById("cake").textContent="🍰";
+
+ burstHearts();
+ checkCake();
+}
+
+function checkCake(){
+ if(candlesBlown&&cakeCut){
+  document.getElementById("cakeMessage").classList.remove("hidden");
+ }
+}
+
+/* GIFT */
+
+let giftOpened=false;
+
+function openGift(){
+ if(giftOpened)return;
+
+ giftOpened=true;
+
+ document.getElementById("giftArea").classList.add("open");
+
+ document.getElementById("giftPrompt").textContent=
+  "A little something from my heart... ♡";
+
+ burstHearts();
+
+ setTimeout(()=>{
+  document.getElementById("giftMessage").classList.remove("hidden");
+
+  document.getElementById("giftPrompt").textContent=
+   "Made with love, just for you. 💗";
+ },850);
+}
+
+/* SPARKLES */
+
+function burstHearts(){
+ const symbols=["💗","💕","♥","✨","⭐","♡","🎀"];
+
+ for(let i=0;i<35;i++){
+  const element=document.createElement("div");
+
+  element.className="sparkle";
+  element.textContent=symbols[
+   Math.floor(Math.random()*symbols.length)
+  ];
+
+  element.style.left="50%";
+  element.style.top="50%";
+
+  element.style.setProperty(
+   "--x",(Math.random()*500-250)+"px"
+  );
+
+  element.style.setProperty(
+   "--y",(Math.random()*500-250)+"px"
+  );
+
+  element.style.fontSize=(15+Math.random()*20)+"px";
+
+  document.body.appendChild(element);
+
+  setTimeout(()=>element.remove(),1800);
+ }
+}
+
+/* ANNIVERSARY COUNTER */
+
+// Starting date: 16 December 2023.
+// Change this date if needed.
+
+const anniversaryStart=new Date(2023,11,16,0,0,0);
+
+function updateCounter(){
+ const now=new Date();
+
+ let years=now.getFullYear()-anniversaryStart.getFullYear();
+ let months=now.getMonth()-anniversaryStart.getMonth();
+ let days=now.getDate()-anniversaryStart.getDate();
+ let hours=now.getHours()-anniversaryStart.getHours();
+
+ if(days<0){
+  months--;
+  days+=new Date(now.getFullYear(),now.getMonth(),0).getDate();
+ }
+
+ if(months<0){
+  months+=12;
+  years--;
+ }
+
+ if(hours<0){
+  hours+=24;
+  days--;
+ }
+
+ if(days<0){
+  months--;
+  days+=new Date(now.getFullYear(),now.getMonth(),0).getDate();
+ }
+
+ if(months<0){
+  months+=12;
+  years--;
+ }
+
+ document.getElementById("years").textContent=years;
+ document.getElementById("months").textContent=months;
+ document.getElementById("days").textContent=days;
+ document.getElementById("hours").textContent=hours;
+}
+
+updateCounter();
+setInterval(updateCounter,60000);
+
+/* FLOATING HEARTS THROUGHOUT */
+
+function createFloating(){
+ const element=document.createElement("div");
+
+ element.className="floating";
+
+ const symbols=["♡","💕","💗","♥","⭐","🎀"];
+
+ element.textContent=symbols[
+  Math.floor(Math.random()*symbols.length)
+ ];
+
+ element.style.left=Math.random()*100+"vw";
+ element.style.fontSize=(15+Math.random()*22)+"px";
+ element.style.animationDuration=(5+Math.random()*5)+"s";
+
+ document.body.appendChild(element);
+
+ setTimeout(()=>element.remove(),10000);
+}
+
+setInterval(createFloating,1100);
+
+</script>
+</body>
+</html>
